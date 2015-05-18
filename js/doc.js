@@ -31,14 +31,14 @@ $(document).ready(function(){
         var $li = $('<li>').append($('<a>').attr('href', '#' + getId($t)).text($t.text()));
         $li.appendTo($ul);
         var $h2ul = $('<ul>').appendTo($li);
-        $t.next('ol').find('h3').each(function(){
+        $t.nextUntil('h2', 'h3').each(function(){
             var $u = $(this);
             $h2ul.append($('<li>').append($('<a>').attr('href', '#' + getId($u)).text($u.text())));
         });
     });
     $('nav').append($('<h2>').text('目录')).append($ul);
 
-
+    // 处理页面内的 # 链接
     $('a[href^="#"]').click(function(){
         var hash = $(this).attr('href');
         $('html, body').animate({
@@ -47,6 +47,4 @@ $(document).ready(function(){
         location.hash = hash;
         return false;
     });
-    // 开启代码高亮
-    SyntaxHighlighter.all();
 });
