@@ -2,7 +2,8 @@
 Embedded markdown and menu utility with syntax highlight
 
 ## Default Structure
-```
+
+```html
 <html>
     <head>
         <!-- your title of documentation -->
@@ -27,9 +28,15 @@ Embedded markdown and menu utility with syntax highlight
 </html>
 ```
 
-
 ## Usage
-```
+### Default Usage
+Just write your documentation in ```<xmp></xmp>``` section.
 
+### Customized Usage (TODO)
 ```
+$(function(){
+    // ...
+});
+```
+## Configuration (TODO)
 
