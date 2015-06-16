@@ -50,9 +50,18 @@ nav:hover {
     opacity: 1;
 }
 
-nav h2 {
+nav h2,
+nav h3 {
     text-align: center;
     margin: 0 0 5px;
+}
+
+nav .H2 {
+
+}
+
+nav .H3 {
+    margin-left: 1em;
 }
 
 nav ul {

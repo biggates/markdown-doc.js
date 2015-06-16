@@ -1,3 +1,5 @@
+// this file does not uses jQuery nor zepto
+
 ;(function(window, document) {
 
   // Hide body until we're done fiddling with the DOM
@@ -101,7 +103,7 @@
 })(window, document);
 
 
-$(document).ready(function(){
+(function(){
     if(!String.prototype.hashCode){
         String.prototype.hashCode = function(){
             if (Array.prototype.reduce){
@@ -119,11 +121,11 @@ $(document).ready(function(){
     }
 
     // 建立目录
-    function getId($elem){
-        var id = $elem.attr('id');
+    function getId(elem){
+        var id = elem.id;
         if(!id){
-            id = 'id_' + $elem.text().hashCode();
-            $elem.attr('id', id)
+            id = 'id_' + elem.innerHtml.hashCode();
+            elem.id = id
         }
         return id;
     }
@@ -145,4 +147,4 @@ $(document).ready(function(){
         location.hash = hash;
         return false;
     });
-});
+})();

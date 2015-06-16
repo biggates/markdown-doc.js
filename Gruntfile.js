@@ -7,13 +7,13 @@ module.exports = function(grunt) {
 			options: {
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 			},
+            prism_js: {
+                src: 'bower_components/prism/prism.js',
+                dest: 'build/js/prism.min.js'
+            },
 			js: {
 				src: 'js/<%= pkg.name %>.js',
 				dest: 'build/js/<%= pkg.name %>.min.js'
-			},
-			strapdown_js: {
-				src: 'external/strapdownjs/strapdown.js',
-				dest: 'build/js/strapdown.min.js'
 			}
 		},
 		cssmin: {
@@ -42,8 +42,20 @@ module.exports = function(grunt) {
 			    strapBanners: true,
 			    separator: ";\n"
 			},
+            prism_combined: {
+                src: [
+                    'build/js/prism.min.js',
+                    'bower_components/prism/components/prism-http.min.js'
+                ],
+                dest: 'build/js/prism-combined.min.js'
+            },
 			js: {
-				src: ['external/jquery.min.js', 'build/js/strapdown.min.js', 'build/js/<%= pkg.name %>.min.js'],
+				src: [
+                    'bower_components/zepto/zepto.min.js',
+                    'build/js/prism-combined.min.js',
+                    'bower_components/marked/marked.min.js',
+                    'build/js/<%= pkg.name %>.min.js'
+                ],
 				dest: 'build/js/<%= pkg.name %>-allinone.min.js'
 			}
 		},
