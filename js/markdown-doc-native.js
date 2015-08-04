@@ -130,7 +130,9 @@
         return id;
     }
 
-    var $ul = $('<ul>');
+    var $ul = document.createElement('ul');
+    var h2s = document.getElementsByTagName('h2');
+    var h3s = document.getElementsByTagName('h3');
     $('h2,h3').each(function(){
         var $t = $(this);
         var $li = $('<li>').append($('<a>').attr('href', '#' + getId($t)).addClass($t.prop('tagName')).text($t.text()));

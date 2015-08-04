@@ -12,8 +12,11 @@ module.exports = function(grunt) {
                 dest: 'build/js/prism.min.js'
             },
 			js: {
-				src: 'js/<%= pkg.name %>.js',
-				dest: 'build/js/<%= pkg.name %>.min.js'
+			    files: {
+                    'build/js/<%= pkg.name %>.min.js': 'js/<%= pkg.name %>.js',
+                    'build/js/markdown-doc-native.min.js': 'js/markdown-doc-native.js',
+                    'build/js/markdown-viewer.min.js': 'js/markdown-viewer.js'
+                }
 			}
 		},
 		cssmin: {
@@ -21,6 +24,7 @@ module.exports = function(grunt) {
 			bootstrap: {
 				files: {
 					'build/css/<%= pkg.name %>-bootstrap.min.css': [
+                        'bower_components/prism/themes/prism.css',
 						'external/strapdownjs/themes/bootstrap.min.css',
 						'external/strapdownjs/strapdown.css',
                         'external/strapdownjs/themes/bootstrap-responsive.min.css',
@@ -33,7 +37,8 @@ module.exports = function(grunt) {
 					'build/css/<%= pkg.name %>-standalone.min.css': [
 						'external/strapdownjs/strapdown.css',
 						'css/<%= pkg.name %>-standalone.css'
-					]
+					],
+                    'build/css/markdown-viewer.min.css': 'css/markdown-viewer.css'
 				}
 			}
 		},
@@ -72,7 +77,12 @@ module.exports = function(grunt) {
 			    files: {
                     'build/standalone.html': 'src/standalone.html'
                 }
-			}
+			},
+            all_in_one_viewer: {
+                files: {
+                    'build/viewer.html': 'markdown-viewer.html'
+                }
+            }
 		}
 	});
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Markdown Viewer</title>
+        <link rel="stylesheet" href="build/css/markdown-doc-bootstrap.min.css" />
+        <link rel="stylesheet" href="build/css/markdown-viewer.min.css" />
+    </head>
+    <body>
+        <div class="hcenter">
+            <div class="vcenter">
+                <div id="dropzone">
+                    <h1>Drag your markdown file here</h1></div>
+            </div>
+        </div>
+
+        <div id="closebutton" title="Close current file"></div>
+
+        <nav></nav>
+        <xmp></xmp>
+        <footer></footer>
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/marked/marked.min.js"></script>
+        <script type="text/javascript" src="build/js/prism-combined.min.js"></script>
+        <script type="text/javascript" src="build/js/markdown-doc.min.js"></script>
+        <script src="build/js/markdown-viewer.min.js"></script>
+    </body>
+
+</html>

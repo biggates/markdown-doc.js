@@ -44,6 +44,7 @@ nav{
     top: 54px;
     transition: all 0.5s ease 0s;
     padding: 5px 0;
+    min-width: 150px;
 }
 
 nav:hover {

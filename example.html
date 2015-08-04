@@ -4,8 +4,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Example Document</title>
-		<link rel="stylesheet" href="external/strapdownjs/strapdown.css" />
-		<link rel="stylesheet" href="bower_components/prism/themes/prism.css" />
         <link rel="stylesheet" href="build/css/markdown-doc-bootstrap.min.css" />
 	</head>
 
@@ -116,6 +114,12 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
         <script type="text/javascript" src="bower_components/marked/marked.min.js"></script>
         <script type="text/javascript" src="build/js/prism-combined.min.js"></script>
         <script type="text/javascript" src="build/js/markdown-doc.min.js" ></script>
+        <script>
+$(document).ready(function() {
+    markdown.init(window, document);
+});
+
+        </script>
 	</body>
 
 </html>
