@@ -11,13 +11,14 @@ $(function() {
 
     var hideDropZone = function(){
         $('nav').show();
-        $('.closebutton').show();
+        $('#closebutton').show();
         $('.hcenter').hide();
     };
     var showDropZone = function(){
         $('nav').hide();
-        $('.closebutton').hide();
+        $('#closebutton').hide();
         $('.hcenter').show();
+        $('#dropzone').removeClass('over');
     };
 
     // drop events
@@ -71,9 +72,11 @@ $(function() {
         $(this).removeClass('over');
     });
 
+    // reset
     $('#closebutton').click(function(){
         $('#content').empty().remove();
-        $('nav').empty();
+        $('.navbar').empty().remove();
+        $('<xmp>').insertAfter($('nav').empty());
         var title = 'Markdown viewer';
         $('title').text(title);
         showDropZone();
