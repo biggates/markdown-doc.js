@@ -13,6 +13,7 @@ temp/
 *.swp
 *.log
 bower_components
+.cache
 
 # branch preview
 branches
