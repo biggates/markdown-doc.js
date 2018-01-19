@@ -15,3 +15,9 @@ end
 
 @enduml
 ```
+
+```json
+{
+    "aaa": 1
+}
+```

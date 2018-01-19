@@ -1,7 +1,11 @@
 var path = require('path');
 const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractMarkdown = new ExtractTextPlugin('doc/[name].md');
+
 module.exports = {
     devtool: 'inline-source-map',
     watch: true,
@@ -14,6 +18,12 @@ module.exports = {
     },
     module: {
         rules: [{
+            test: /\.js|jsx$/i,
+            exclude: [
+                path.resolve(__dirname, 'node_modules')
+            ],
+            use: 'babel-loader'
+        }, {
             test: /\.css$/i,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
@@ -21,14 +31,7 @@ module.exports = {
             })
         }, {
             test: /\.md$/i,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[hash].[ext]',
-                    context: path.resolve(__dirname, 'dist'),
-                    outputPath: './doc/'
-                }
-            }]
+            use: 'raw-loader'
         }, {
             test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
             use: [{
@@ -49,6 +52,7 @@ module.exports = {
             filename: "style/[name].[contenthash].css",
             allChunks: true
         }),
+        extractMarkdown,
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function (module, count) {

@@ -1,25 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import CommonMark from 'commonmark';
-import ReactRenderer from 'commonmark-react-renderer';
+import MarkdownComponent from "./markdown.jsx";
 
-import * as doc from 'doc/*.md';
+import "./assets/styles/style.scss";
 
-class Component extends React.PureComponent {
-    render() {
-        var parser = new CommonMark.Parser();
-        var renderer = new ReactRenderer();
+import doc from "../doc/document.md";
 
-        debugger;
-        
-        var ast = parser.parse(doc);
-        var result = renderer.render(ast);
-
-        return (
-            <div>{result}</div>
-        );
-    }
-}
-
-ReactDOM.render(<Component />, document.getElementById('root'));
+render(<MarkdownComponent text={doc} />, document.getElementById("root"));
